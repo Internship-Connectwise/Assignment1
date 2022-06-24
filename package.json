@@ -1,0 +1,20 @@
+{
+  "name": "node-assignment",
+  "version": "1.0.0",
+  "description": "This is node assignment assigned from abhishek",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemmon index.js"
+  },
+  "author": "Rahul@connectwise",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "mongodb": "^4.7.0",
+    "mongoose": "^6.4.0"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^7.3.0",
+    "nodemon": "^2.0.16"
+  }
+}
