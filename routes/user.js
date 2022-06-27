@@ -6,6 +6,8 @@ const faker=f.faker;
 
 const uschema=require('../model/user');
 
+const fs=require("fs");
+
 const users=[];
 
 function createUser(){
@@ -39,10 +41,17 @@ router.get('/:cnt',async(req,res)=>{
         users.push(createUser());
     }
     await uschema.insertMany(users).then(()=>{
+        let fileContent='{"Users"='+JSON.stringify(users)+'}';
+        fs.writeFileSync("./data/userdata.js",fileContent,(err)=>{
+            if(err)
+            console.log("Error: "+err)
+            else{
+                console.log("successfuly written to file")
+            }
+        })
         console.log("insertion successfull")
-    }).catch((e)=>{
-        console.log("error "+e);
-    });
+    })
+    res.json(users);
 })
 
 module.exports=router; 
